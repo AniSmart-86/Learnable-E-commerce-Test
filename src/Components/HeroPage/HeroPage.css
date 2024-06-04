@@ -1,0 +1,52 @@
+.HeroPage{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    
+}
+
+.HeroPage h2{
+font-family: Montserrat;
+font-size: 24px;
+font-weight: 700;
+line-height: 32px;
+letter-spacing: 0.10000000149011612px;
+text-align: left;
+
+}
+
+.left-img{
+    margin: 10px;
+    position: relative;
+}
+
+.sub-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  
+}
+
+.sub-img .sub-img1{
+    margin: 10px;
+}
+
+.tag2, .tag1, .tag3, .tag4{
+    position: absolute;
+    padding: 40px;
+}
+
+
+@media (max-width: 580px){
+    .HeroPage {
+        flex-direction: column;
+    }
+
+    .sub-img {
+        flex-direction: column;
+    }
+}
+
+
+

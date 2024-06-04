@@ -1,0 +1,42 @@
+
+/* ========= TopNavBar styling ======== */
+
+.TopNavBar{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+    background: #23856D;
+    color: #fff;
+    padding: 16px;
+}
+
+.right-content, .left-content{
+    display: flex;
+  
+}
+.right-content h6, .left-content h6{
+    padding: 0px 4px;
+    padding-right: 20px;
+    padding-left: 8px;
+}
+
+.TopNavBar h6{
+font-family: Montserrat;
+font-size: 14px;
+font-weight: 700;
+/* line-height: 24px; */
+letter-spacing: 0.20000000298023224px;
+color: #fff;
+    
+}
+
+a{
+    text-decoration: none;
+}
+
+@media (max-width: 600px){
+    .TopNavBar {
+        display: none;
+        
+    }
+}

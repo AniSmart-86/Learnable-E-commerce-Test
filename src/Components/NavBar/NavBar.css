@@ -1,0 +1,70 @@
+.NavBar{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 20px 30px;
+
+}
+
+ul{
+    display: flex;
+   align-items: center;
+   
+}
+
+ul a, li{
+    margin: 0px 8px;
+font-family: Montserrat;
+font-size: 18px;
+font-weight: 700;
+line-height: 24px;
+letter-spacing: 0.5px;
+list-style: none;
+color: #737373;
+}
+
+ul select{
+    border: none;
+    font-size: 16px;
+    margin: 0px 2px;
+}
+
+ .left-content,  .login-btn{
+    display: flex;
+ align-items: center;
+
+    padding: 0px 5px;
+    margin-right: 25px;
+font-family: Montserrat;
+font-size: 17px;
+font-weight: 700;
+line-height: 24px;
+letter-spacing: 0.5px;
+
+color: #23A6F0;
+border: none;
+background: transparent;
+}
+
+.left-content div{
+    position: relative;
+    padding: 4px 10px;
+}
+
+.left-content div .count{
+ position: absolute;
+ top: -8px;
+}
+
+.NavBar a{
+    text-decoration: none;
+
+}
+
+.left-content div a{
+    color: #23A6F0;
+}
+
+.NavBar h1{
+    color: #252b42;
+}
