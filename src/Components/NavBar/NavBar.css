@@ -12,6 +12,12 @@ ul{
    
 }
 
+nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 ul a, li{
     margin: 0px 8px;
 font-family: Montserrat;
@@ -67,4 +73,57 @@ background: transparent;
 
 .NavBar h1{
     color: #252b42;
+}
+
+.menu-icon{
+    display: none;
+}
+
+@media (max-width: 600px){
+
+    .NavBar{
+        position: sticky;
+        top: 0;
+    }
+
+    .menu-icon{
+        display: block;
+    }
+
+    nav ul{
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 3%;
+        background: #f7f7f7;
+        border-top: .1rem solid rgba(0, 0, 0, .2);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+        display: none;
+        gap: 18px;
+      
+     
+    }
+
+    nav ul.open{
+        display: flex;
+        margin: 0 2rem;
+     
+    
+    }
+    
+nav{
+   flex-direction: column;
+   background-color: #e8e6e6;
+   gap: 18px;
+ 
+}
+
+ .left-content, .login-btn{
+   font-size: 14px;
+ 
+}
+
+
 }

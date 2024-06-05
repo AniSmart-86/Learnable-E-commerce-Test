@@ -27,7 +27,7 @@ import Footer from '../Footer/Footer';
 
 const Cart = () => {
 
-
+  const {cartTotalQuantity} = useSelector(state => state.cart)
 
     const {data, isError, isLoading} = useHomeDecorationProductsQuery(10);
     const dispatch = useDispatch();
@@ -58,6 +58,7 @@ dispatch(getTotals())
         dispatch(addToCart(cartItem));
        }
   return (
+    <div>
     <div className='shopping-content'>
 
 
@@ -134,7 +135,7 @@ dispatch(getTotals())
   <div className="summary">
   <div className="cart-heading">
     <h3>Order Summary</h3>
-    <p>item{cart.cartQuantity}</p>
+    <p>{cartTotalQuantity} item(s)</p>
   </div>
   <hr />
 
@@ -215,6 +216,8 @@ dispatch(getTotals())
 
             </div>
         </div>
+
+  </div>
   <Footer/>
   </div>
   )

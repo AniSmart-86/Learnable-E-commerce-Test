@@ -58,9 +58,14 @@ outline-style: none;
 }
 
 @media (max-width: 600px){
+    .Footer{
+      align-self: flex-start;
+    }
     .Footer-container {
      flex-direction: column;
-     text-align: start;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
     }
 
     .Footer-content a{

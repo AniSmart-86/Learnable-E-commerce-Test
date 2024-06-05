@@ -66,9 +66,18 @@
 
 
 @media (max-width: 600px){
-    .reviewPage {
-       flex-direction: column;
+
+    .review-Page {
+        flex-direction: column;
         padding: 1px;
         margin-top: 1px;
+    }
+
+    .review-Page h1 {
+       
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 20px;
+        
     }
 }

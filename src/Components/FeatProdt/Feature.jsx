@@ -10,7 +10,6 @@ import { Link } from 'react-router-dom';
 import Item from '../Item/Item';
 import { addToCart } from '../../Pages/CartSlice';
 import { useNavigate } from 'react-router-dom';
-
  const style = { margin: "10px 0px", color: "#23A6F0"};
 
 
