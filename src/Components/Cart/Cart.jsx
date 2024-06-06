@@ -1,5 +1,5 @@
 import React from 'react'
-import { useHomeDecorationProductsQuery } from '../ApiData/ApiData';
+import { useAllProductsQuery } from '../ApiData/ApiData';
 import { FaShoppingCart, FaHeart, FaInstagram, FaFacebookSquare, FaTwitter } from 'react-icons/fa';
 import { addToCart, decreaseCart, getTotals, removeFromCart } from '../../Pages/CartSlice';
 import { useNavigate } from 'react-router-dom';
@@ -29,7 +29,7 @@ const Cart = () => {
 
   const {cartTotalQuantity} = useSelector(state => state.cart)
 
-    const {data, isError, isLoading} = useHomeDecorationProductsQuery(10);
+    const {data, isError, isLoading} = useAllProductsQuery();
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -179,9 +179,9 @@ dispatch(getTotals())
       <h3> PRODUCTS RELATED TO ITEMS IN YOUR CART</h3>
       <div className="feature-wrapper">
       
-        {data?.products.map((item) =>{
+        {data?.products.slice(0, 15).map((item) =>{
             return (
-                <div className="img-container">
+                <div className="img-container"  onClick={() =>handleAddToCart(item)}>
                 <div>
                 <img  src={item.images[0]} alt="" key={item.id}/>
            <h5>{item.title}</h5>
@@ -191,7 +191,8 @@ dispatch(getTotals())
             <span>$6.48</span>
             </div>
            <div className="layer">
-           <FaShoppingCart style={style} onClick={() =>handleAddToCart(item)}/>
+           <FaShoppingCart style={style}/>
+          
            <Link> <FaHeart style={style}/></Link>
           
            </div>

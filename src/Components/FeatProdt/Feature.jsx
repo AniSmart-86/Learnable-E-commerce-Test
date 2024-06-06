@@ -1,5 +1,5 @@
-import React from 'react'
-import { useHomeDecorationProductsQuery } from '../ApiData/ApiData';
+import React, { useState, useEffect } from 'react'
+import { useAllProductsQuery, usePaginateProductsQuery } from '../ApiData/ApiData'
 import './Feature.css'
 import Icon1 from './Icons/sub-icons (1).png'
 import Icon2 from './Icons/sub-icons (2).png'
@@ -10,16 +10,37 @@ import { Link } from 'react-router-dom';
 import Item from '../Item/Item';
 import { addToCart } from '../../Pages/CartSlice';
 import { useNavigate } from 'react-router-dom';
+import Button from './Button'
+
+
+
+
+
+
+
  const style = { margin: "10px 0px", color: "#23A6F0"};
-
-
 
 const Feature = () => {
 
-    const {data, isError, isLoading} = useHomeDecorationProductsQuery(10);
-  const dispatch = useDispatch();
-   const navigate = useNavigate();
+  const { data, isLoading: isLoadingDatas } = useAllProductsQuery();
+  const { data: paginateData, isLoading: isLoadingData } =
+    usePaginateProductsQuery();
 
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+ 
+  const [showData, setShowData] = useState(null);
+
+  useEffect(() => {
+    if (!isLoadingData) setShowData(paginateData);
+  }, [isLoadingData, setShowData, paginateData]);
+
+  const isLoading = isLoadingDatas || isLoadingData;
+
+  function handleAllData() {
+    if (!isLoading && showData !== data) setShowData(data);
+    if (!isLoading && showData === data) setShowData(paginateData);
+  }
 
  const handleAddToCart = (item) =>{
 dispatch(addToCart(item));
@@ -33,14 +54,17 @@ navigate("/cart");
       <p>Problems trying to resolve the conflict between </p>
       <div className="feature-wrapper">
       
-        {data?.products.map((item,i) =>{
+        {showData?.products.map((item) =>{
             return (
-                <div className="img-container">
+                <div className="img-container" onClick={() =>handleAddToCart(item)}>
                 <div>
-             <Item key={i} id={item.id} title={item.title} image={item.images[0]} category={item.category} price={item.price}/>
+                  <Link to={`/products/${item.id}`} key={item.id}>
+                  <Item  title={item.title} image={item.images[0]} category={item.category} price={item.price}/>
+                  </Link>
+           
            
            <div className="layer">
-           <FaShoppingCart style={style} onClick={() =>handleAddToCart(item)}/>
+           <FaShoppingCart style={style} />
            <Link> <FaHeart style={style}/></Link>
           
            </div>
@@ -53,8 +77,16 @@ navigate("/cart");
 })}
   
   </div>
-  
-<button className='more-btn'>LOAD MORE PRODUCTS</button>
+  <Button onClick={handleAllData} disabled={isLoading}>
+          {isLoading ? (
+            <div>LOADING...</div>
+          ) : showData === paginateData ? (
+            "LOAD MORE PRODUCTS"
+          ) : (
+            "LOAD LESS PRODUCTS"
+          )}
+        </Button>
+
 
 
   <div className="sub-feature">

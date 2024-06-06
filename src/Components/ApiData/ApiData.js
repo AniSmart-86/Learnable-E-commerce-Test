@@ -6,14 +6,25 @@ export const productsApi = createApi({
     baseQuery: fetchBaseQuery({baseUrl: "https://dummyjson.com"}),
     endpoints: (builder) =>({
         
-        // Kitchen Accessories
-        HomeDecorationProducts: builder.query({
-            query: () => '/products/category/kitchen-accessories?limit=10',
+        
+        AllProducts: builder.query({
+            query: () => '/products',
         }),
 
+        getProductByCategory: builder.query({
+            query: (category) => `/products/category/${category}`,
+          }),
 
+          
+    paginateProducts: builder.query({
+        query: () => `/products?limit=10&skip=6`,
+      }),
+
+      getProductById: builder.query({
+        query: (id) => `/products/${id}`,
+      }),
     }),
 });
 
 
-export const { useHomeDecorationProductsQuery  } = productsApi
+export const { useAllProductsQuery, useGetProductByCategoryQuery, useGetProductByIdQuery, usePaginateProductsQuery  } = productsApi

@@ -13,7 +13,7 @@ const ShoppingReview = () => {
 </div>
 <div className='review-Page'>
 <div className="review-section">
-    <h1>the quick fox jumps over </h1>
+    <h1>The quick fox jumps over </h1>
     <div className="text-review">
         <div>
    <p>Met minim Mollie non desert Alamo est sit cliquey 

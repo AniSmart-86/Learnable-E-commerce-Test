@@ -1,5 +1,5 @@
 import React from 'react'
-import { useHomeDecorationProductsQuery } from '../ApiData/ApiData';
+import { useAllProductsQuery } from '../ApiData/ApiData';
 import './Shopping.css'
 import { FaShoppingCart, FaHeart, FaInstagram, FaFacebookSquare, FaTwitter } from 'react-icons/fa';
 import brand1 from './brand-img/brand-img (1).png'
@@ -20,7 +20,7 @@ import { Link } from 'react-router-dom';
 
 const Shopping = () => {
 
-    const {data, isError, isLoading} = useHomeDecorationProductsQuery(10);
+    const {data, isError, isLoading} = useAllProductsQuery();
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -37,11 +37,11 @@ const Shopping = () => {
       <h3>BESTSELLER PRODUCTS</h3>
       <div className="feature-wrapper">
       
-        {data?.products.map((item) =>{
+        {data?.products.slice(0, 15).map((item) =>{
             return (
-                <div className="img-container">
+                <div className="img-container"  key={item.id}>
                 <div>
-                <img  src={item.images[0]} alt="" key={item.id}/>
+                <img  src={item.images[0]} alt=""/>
            <h5>{item.title}</h5>
             <h6>{item.review}</h6>
             <div className="prices">

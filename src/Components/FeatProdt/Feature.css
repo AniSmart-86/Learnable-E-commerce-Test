@@ -49,6 +49,10 @@ padding-bottom: 20px;
   
 }
 
+a{
+    color: rgb(45, 48, 52);
+}
+
  .img-container{
     position: relative;
     width: 200px;
