@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import './App.css';
 import "react-toastify/dist/ReactToastify.css"
@@ -13,6 +13,7 @@ import { Provider } from 'react-redux';
 import { store } from './Components/Store';
 import ShoppingCart from './Pages/ShoppingCart';
 import Cart from './Components/Cart/Cart';
+import ScrollToTopOnMount from './Pages/ScrollOnTop';
 
 
 
@@ -23,11 +24,13 @@ function App() {
     <div>
       <Provider store={store}>
       <BrowserRouter>
+      <ScrollToTopOnMount/>
       <ToastContainer/>
     <NavBar/>
     <Routes>
 
-      <Route path='/home' exact element={<Home/>}/>
+      <Route index element={< Navigate replace to="/Home"/>}/>
+      <Route path='/home' element={<Home/>}/>
       <Route path='/shop' element={<Shop/>}/>
       <Route path='/about' element={<About/>}/>
       <Route path='/blog' element={<Blog/>}/>

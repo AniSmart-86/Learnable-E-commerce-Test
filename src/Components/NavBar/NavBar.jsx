@@ -7,7 +7,7 @@ import { FaUser,
   FaShoppingCart,
   FaHeart
  } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import menuIcon from './menu.png'
 import { useState } from 'react'
@@ -24,25 +24,25 @@ function NavBar() {
     <div>
        <TopNavBar/>
       <div className="NavBar">
-        <Link to="/Home"><h1>Bandage</h1></Link>
+        <NavLink to="/Home"><h1>Bandage</h1></NavLink>
         <img className='menu-icon' src={menuIcon} alt="" onClick={() =>{
           setMenuOpen(!menuOpen);
         }}/>
 
 <nav>
-<ul className={menuOpen ? "open" : ""}>
+<ul className={menuOpen ? "open" : "hidden"}>
          
-          <li><Link to="/Home">Home</Link></li>
+          <li><NavLink to="/">Home</NavLink></li>
       
-      <Link to="Shop"> <select name="" id="">
+      <NavLink to="Shop"> <select name="" id="">
         <option value="">Shop</option>
-        </select></Link>
+        </select></NavLink>
        
       
-      <li><Link to="About">About</Link></li>
-      <li><Link to="Blog">Blog</Link></li>
-      <li><Link to="Contact">Contact</Link></li>
-      <li><Link to="Pages">Pages</Link></li>
+      <li><NavLink to="/">About</NavLink></li>
+      <li><NavLink to="/">Blog</NavLink></li>
+      <li><NavLink to="/">Contact</NavLink></li>
+      <li><NavLink to="/">Pages</NavLink></li>
         
 
           <div className="left-content">
@@ -52,13 +52,13 @@ function NavBar() {
   <FaSearch/>
 </div>
 <div>
-  <Link to="Cart"><FaShoppingCart/></Link>
+  <NavLink to="Cart"><FaShoppingCart/></NavLink>
 
 <span className="count">{cartTotalQuantity}</span>
 </div>
 <div>
 <FaHeart/>
-<span className="count">0</span>
+<span className="count">1</span>
 </div>
             </div>       
 
